@@ -1,0 +1,84 @@
+<div>
+	
+	<mat-toolbar color="primary" class="mat-elevation-z1">
+		<mat-toolbar-row>
+			<span>Nuevo vehiculo</span>
+		</mat-toolbar-row>
+	</mat-toolbar>
+
+
+	<form [formGroup]="form"  (ngSubmit)="submitStudentData()" >
+		<mat-grid-list cols="1" rowHeight="400px">
+			<mat-grid-tile>
+				<div class="container">
+					<input type="hidden" formControlName="$key" />
+					<mat-form-field>
+						<input formControlName="iglesia" matInput placeholder="Iglesia*" />
+						<mat-error> obligatorio.</mat-error>
+					</mat-form-field>
+					<mat-form-field>
+						<input formControlName="marca" matInput placeholder="marca/sub-marca*" />
+						<mat-error>This field is mandatory.</mat-error>
+					</mat-form-field>
+					
+					<mat-form-field>
+						<input formControlName="placas" matInput placeholder="placas*" />
+						<mat-error>This field is mandatory.</mat-error>
+					</mat-form-field>
+					<mat-form-field>
+						<input formControlName="color" matInput placeholder="color*" />
+						<!-- <mat-error>This field is mandatory.</mat-error> -->
+					</mat-form-field>
+					
+					<mat-form-field  appearance="fill">
+						<mat-label>escoja un año</mat-label>
+						<input matInput 
+						 [min]="minDate"
+						  [max]="maxDate"
+						  [matDatepicker]="dp"  
+						  [formControl]="date" 
+						  formControlName="modelo"
+						  placeholder="modelo">
+						
+						<mat-datepicker-toggle matSuffix [for]="dp">
+						<!--   <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon> -->
+						</mat-datepicker-toggle>
+							<mat-datepicker #dp
+							
+							startView="multi-year"
+							(yearSelected)="chosenYearHandler($event,dp)" 
+							panelClass="example-month-picker">
+
+							</mat-datepicker>
+					  </mat-form-field>
+
+					  <div class="button-row">
+						<button mat-raised-button color="primary" type="submit" mat-dialog-close [disabled]="form.invalid">Submit</button>
+						<button mat-raised-button color="warn" (click)="clearForm()">Clear</button>
+					</div>
+					 
+				<!-- 	<mat-form-field>
+						<input formControlName="email" matInput placeholder="Email" />
+						<mat-error>Invalid email address.</mat-error>
+					</mat-form-field> -->
+					<!-- <mat-form-field>
+						<input formControlName="mobile" matInput placeholder="Mobile*" />
+						<mat-error *ngIf="form.controls['mobile'].errors?.required">This field is mandatory.</mat-error>
+						<mat-error *ngIf="form.controls['mobile'].errors?.minlength">Minimum 8 charactors needed.
+						</mat-error>
+					</mat-form-field> -->
+					<!-- <mat-form-field>
+						<input formControlName="city" matInput placeholder="City" />
+          </mat-form-field> -->
+				</div>
+
+				
+			</mat-grid-tile>
+			
+			 
+		</mat-grid-list>		
+	</form>
+
+</div>
+	
+ 

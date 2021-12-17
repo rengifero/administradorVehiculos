@@ -1,19 +1,47 @@
  <div class="container mt-5" style="max-width: 600px">
 
-   <div class="row" *ngIf="ngAuthService.userState as user">
+   <div class="row" *ngIf="ngAuthService.userState as user" >
      <div class="media">
        <img class="align-self-start mr-5 img-thumbnail rounded-circle"
          src="{{(user.photoURL) ? user.photoURL : '/assets/dummy.jpg'}}" alt="{{user.displayName}}">
        <div class="media-body">
-         <h2>Hi: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h2>
-         <p>User ID: <strong>{{user.uid}}</strong></p>
-         <p>Email: <strong>{{user.email}}</strong></p>
+         <h2>Bienvenido: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h2>
+         <!-- <p>User ID: <strong>{{user.uid}}</strong></p>
+         <p>Email: <strong>{{user.email}}</strong></p> -->
        </div>
      </div>
    </div>
+  <!--  <li *ngFor="let item of sub$| async" class="list-group-item list-group-item-action">
+    {{ item }}
+</li> -->
+ 
+<div class="row" *ngIf="authenticationService.validatorSend; else elseBlock" class="list-group-item list-group-item-action">
+ <!--  {{ authenticationService.validatorSend }} -->
 
-   <a class="btn btn-block btn-primary" (click)="ngAuthService.SignOut()">
+  
+  <a class="btn btn-block " mat-raised-button color="primary" [routerLink]="['/autos-list']"   >
+
+    Administración vehiculo
+  </a>
+
+<!--    <a class="btn btn-block btn-primary" (click)="ngAuthService.SignOut()">
      Sign Out
-   </a>
+   </a> -->
+
+</div>
+ 
+<ng-template #elseBlock><a routerLink="../login"></a>Alternate text while primary text is hidden</ng-template>
+
+  <!--  <div class="example-container"
+   [class.mat-elevation-z2]="!isActive"
+   [class.mat-elevation-z8]="isActive">
+ Example
+</div> -->
+
+<!-- <button mat-button (click)="isActive = !isActive">Toggle Elevation</button>
+ -->
+
 
  </div>
+
+ 

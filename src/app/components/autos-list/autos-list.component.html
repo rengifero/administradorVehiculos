@@ -1,0 +1,62 @@
+
+<div class="row">
+  <div class="col-md-6">
+    <a href="#" routerLink="/login" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"> Back To login</i></a>
+  </div>
+  <div class="col-md-6">
+      
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+      <h2><i class="fa fa-car">lista de autos</i></h2>
+
+    </div>
+    <div class="col-md-6">
+
+    <!--   <h5 class="pull-right text-muted">Total Owed: {{ totalOwed | currency:"USD": true}}</h5>
+     -->
+    </div>
+
+
+    <div class="col-md-2">
+      <a class="btn btn-warning"  (click)=" openDialog()" >
+        Alta vehicular
+      </a>
+    </div>
+
+  </div>
+  <br>
+  <table class="table table-striped" *ngIf="autos?.length > 0; else noClients">
+    <thead class="thead-danger">
+      <tr>
+       <!--  <th>ID</th> -->
+        <th>Name Administrador</th>
+        <th>placas</th>
+        <th>marca</th>
+        <th>color</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let auto of autos ; index as i">
+      <!--   <td> {{i+1  }}{{auto.id}}  </td> -->
+        <td>{{auto.administrador}} {{auto.iglesia}}</td>
+        <td> {{auto.placas}}</td>
+        <td> {{auto.marca}}</td>
+        <td>{{auto.color}}</td>
+        <td><a [routerLink]="['/autos-admin',auto.id,auto.administrador,auto.iglesia,auto.marca]"   
+
+
+             href="" class="btn btn-secondary btn-sm">
+            <i class="fa fa-arrow-circle-o-right">
+           </i> Administrar</a></td>
+      </tr>
+    </tbody>
+
+  </table>
+  <ng-template #noClients>
+    <hr>
+    <h5>There are no clients in the system</h5>
+  </ng-template>

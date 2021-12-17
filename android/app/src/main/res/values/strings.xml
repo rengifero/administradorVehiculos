@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">admin-autos-app</string>
+    <string name="title_activity_main">admin-autos-app</string>
+    <string name="package_name">com.autos.app</string>
+    <string name="custom_url_scheme">com.autos.app</string>
+</resources>

@@ -1,0 +1,61 @@
+
+<!--Navbar-->
+<nav class="navbar navbar-light navbar-toggleable-md navbar-inverse " style="background-color: #1720a7;">
+ <!--  <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse "> -->
+<!-- <nav class="navbar navbar-light light-blue lighten-4"> -->
+
+  
+
+    <div class="container">
+
+   <!-- Navbar brand -->
+   <a class="navbar-brand" href="/list-autos"style="text-decoration:none" >.</a>
+
+
+       <!-- Collapse button -->
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"  
+            data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+
+    
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault" >
+
+      <ul class="navbar-nav mr-auto ">
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" href="#"  routerLink="dashboard"  >Dashboard</a>
+        </li> 
+      </ul>
+
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item" *ngIf="!isLoggedIn && showRegister">
+              <a class="nav-link"  href="#" routerLink="/register">Register</a>
+            </li>
+          <li class="nav-item" *ngIf="!isLoggedIn && showRegister">
+            <a class="nav-link" href="#" routerLink="/login">Login</a>
+          </li> 
+          <li class="nav-item" *ngIf="isLoggedIn">
+            <a class="nav-link">{{loggedInUser}}</a>
+          </li>
+          <li class="nav-item" *ngIf="isLoggedIn">
+              <a  style="text-decoration:none"  class="nav-link" href="#" routerLink="/settings">Settings</a>
+            </li> 
+
+          <li class="nav-item" *ngIf="isLoggedIn">
+            <a class="nav-link" href="#" (click)="onLogoutClick()">Logout</a>
+          </li> 
+        </ul>
+
+         <!-- Links -->
+    <form class="form-inline">
+      <div class="md-form my-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      </div>
+    </form>
+      
+    </div>
+  </div>
+  </nav>
+<br><br>

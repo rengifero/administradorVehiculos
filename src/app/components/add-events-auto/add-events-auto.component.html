@@ -1,0 +1,174 @@
+<div class="row">
+  <div class="col-md-6">
+    <a href="#" routerLink="/autos-list" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"> Back To autos-list</i></a>
+  </div>
+  <div class="col-md-6">
+      
+  </div>
+</div>
+
+
+    <div class="card-header"> Add registro de matenimiento</div>
+    <div class="card-header text-center" >Diario de mantenimiento vehicular</div>
+    
+  
+    <div class="container-fluid">
+
+      <form  [formGroup]="addmore">
+        <div class="card">
+          <div class="card-body">
+ 
+            <div class="row">
+                <div class="col-sm-4">
+                     <mat-form-field appearance="outline">
+                      <mat-label>fecha</mat-label>
+                      <input #input matInput [matDatepicker]="picker" placeholder="date" formControlName="fecha" readonly>
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                      
+                       <!--  <mat-label>fecha</mat-label>
+                        <input matInput  formControlName="fecha"> -->
+                        <!-- <mat-error *ngIf="(f.title.dirty && f.title.invalid==true )">
+                          <span>Please Enter Valid Number</span>
+                        </mat-error> -->
+                      </mat-form-field>
+                     
+                      <button  (click)="resetForm()">x</button>
+                </div>
+               
+            
+                
+                <div class="col-sm-4">
+                     <mat-form-field appearance="outline">
+                        <mat-label>kilometraje</mat-label>
+                        <textarea matInput  formControlName="kilometraje"></textarea>
+                        <mat-error  *ngIf="this.addmore.get('kilometraje').errors?.pattern"  class="alert alert-danger">
+                          <span> solo valor numérico</span>
+                        </mat-error >
+                      </mat-form-field>
+                </div>
+
+                <div class="col-sm-3">
+                  <mat-form-field appearance="outline">
+                           <mat-label>type</mat-label>
+                           <mat-select formControlName="type">
+                             <mat-option value="1">
+                               nuevo
+                             </mat-option>
+                              <mat-option value="2">
+                               reparación
+                             </mat-option>
+                             <mat-option value="3">
+                              mantenimiento
+                            </mat-option>
+                         
+                             <!-- <mat-option *ngFor="let parentPOSDepartment of parentPOSDepartment"
+                               [value]="parentPOSDepartment.id">
+                               {{parentPOSDepartment.text}}
+                             </mat-option> -->
+                           </mat-select>
+                         </mat-form-field>
+               </div>
+
+
+
+
+               <div class="col-sm-4">
+                <mat-form-field appearance="outline">
+                   <mat-label>descripcion General</mat-label>
+                   <textarea matInput  formControlName="descripcion"></textarea>
+                   <mat-error  *ngIf="this.addmore.get('kilometraje').errors?.pattern"  class="alert alert-danger">
+                     <span> ingrese una descripción general</span>
+                   </mat-error >
+                 </mat-form-field>
+           </div>
+
+
+           <div class="col-sm-4">
+            <mat-form-field appearance="outline">
+               <mat-label>donde: compra/reparación</mat-label>
+               <textarea matInput  formControlName="lugar"></textarea>
+               <mat-error  *ngIf="this.addmore.get('lugar').errors?.pattern"  class="alert alert-danger">
+                 <span> donde reparó/compró</span>
+               </mat-error >
+             </mat-form-field>
+       </div>
+
+                    <!--  <div class="col-sm-4">
+                        <mat-form-field appearance="outline">
+                          <mat-label>costo</mat-label>
+                          <textarea matInput id="costo" formControlName="costo" >
+
+                          </textarea>
+
+                          <div *ngIf="this.addmore.get('costo').invalid && (this.addmore.get('costo').dirty )"
+                          class="alert alert-danger">
+                      
+                          <mat-error *ngIf="this.addmore.get('costo').errors?.required">
+                          cantidad es requerida
+                          </mat-error>
+                          <mat-error *ngIf="this.addmore.get('costo').errors?.pattern">
+                          error de formato
+                        </mat-error>
+                        <mat-error *ngIf="this.addmore.get('costo').errors?.minlength">
+                          ingrese almenos 2 digitos
+                          </mat-error>
+                      </div>
+                        </mat-form-field>
+                    </div> -->
+
+              </div>
+
+              <!-- <form [formGroup]="addmore" #indentAddForm=ngForm  (ngSubmit)="onSubmit()" > -->
+                      <div class="row">
+                         <div class="col-sm-12 table-responsive mat-subheading-2" formArrayName="itemRows">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th style="white-space: nowrap;padding-right: 3em;float:center">(refacción, tipo, marca)</th>
+                                <th style="white-space: nowrap;padding-right: 4em;float:center">costo</th>
+                                <th style="white-space: nowrap;padding-right: 3em;float:center">recomendación</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let itemrow of addmore.controls.itemRows['controls']; let i=index"  [formGroupName]="i">
+      
+                                <td> <textarea formControlName="descripcion" class="form-control reset"></textarea></td>
+                                <td> <input formControlName="costo" class="form-control reset">
+                                  <mat-error *ngIf="this.arrayTemp.get('costo').errors?.pattern ">
+                                    error de formato 
+                                  </mat-error>
+                                 
+                                </td>
+                                <td> <textarea formControlName="recomendacion" class="form-control reset"></textarea></td>
+                                <td> <button *ngIf="addmore.controls.itemRows['controls'].length > 1" (click)="deleteRow(i)" class="btn btn-danger">
+                                  <i class="fa fa-minus-circle" aria-hidden="true"></i>X</button></td>
+                              </tr>
+                            </tbody>
+                            <tfoot>
+                              <tr><td> <button type="button" (click)="addNewRow()" class="btn btn-primary">+<i class="fa fa-plus-circle" aria-hidden="true"></i></button></td></tr>
+                            </tfoot>
+                          </table>
+                        </div>
+                     
+                    </div>
+                    <!-- </form> -->
+
+                   <!--  <p>
+                      Form Status: {{ arrayTemp.status }}
+                    </p> -->
+      
+          </div>
+        </div>
+       
+ 
+      </form>
+
+      <button (click)="onSubmit1()" [disabled]="!addmore.valid">registrar</button>
+     
+
+
+     
+    </div>
+  
+  

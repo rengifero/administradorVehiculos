@@ -1,0 +1,6 @@
+{
+	"appId": "com.autos.app",
+	"appName": "admin-autos-app",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

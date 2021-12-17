@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="col-md-6">
+    <a href="#" routerLink="/autos-list" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"> Back to List</i></a>
+  </div>
+  <div class="col-md-10">
+    <p>autos-admin works!</p>
+    </div>
+    
+    <div class="col-md-2">
+      <app-sidebar></app-sidebar>
+    </div>
+</div>
+
+<div>
+ 
+  </div>
+
+
+<div class="row">
+    <div class="col-md-6">
+      <h2><i class="fa fa-users"></i> {{iglesia }} - {{marca}} </h2>
+    </div>
+
+    <!-- <div class="col-md-6">
+        <h5 class="pull-right text-muted">Id: {{ vitacora[0].autoId}}</h5>
+      </div> -->
+
+    <!-- <div class="col-md-6">
+        <h5 class="pull-right text-muted">Marca: {{ vitacora[0].marca }}</h5>
+      </div> -->
+
+
+    <div class="col-md-6">
+      <h5 class="pull-right text-muted">Total Owed: {{ totalOwed | currency:"USD": true}}</h5>
+    </div>
+  </div>
+
+
+  <br>
+  <!-- <div style="width:1000px;overflow-y:scroll;">  -->
+     <table class="table table-striped" *ngIf="vitacora?.length > 0; else noClients">
+    <thead class="thead-inverse">
+      <tr>
+        <!-- <th>Id</th> -->  
+        <th>User</th>  
+        <th>Fecha</th>  
+        <th>Kilometraje/th> 
+        <th>Descripción</th>
+        <th>lugar</th>
+        <th>Costo</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vit of vitacora; let ind = index">
+       <!--  <td>{{vit.id}}</td> -->
+        <td>{{vit.User}}</td>
+        <td>{{vit.fecha.toDate() | date: 'dd-MM-yyyy' }}</td>
+        <td>{{vit.kilometraje}}</td>
+        <td>{{vit.descripcion}}</td>
+        <td>{{vit.lugar}}</td>
+<!--         <td> {{vit.itemRows[0].costo }}</td> -->
+      <td> {{ incremental[ind] }}</td>
+        <!-- <td><a [routerLink]="['/detalles/'+vit.id+ind]"    href="" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-circle-o-right"></i> Details</a></td> -->
+        <td> <button type="button" (click)="detalles(vit.id)" class="btn btn-primary">detalles<i class="fa fa-plus-circle" aria-hidden="true"></i></button></td>
+      </tr>
+    </tbody>
+
+  </table>
+  <ng-template #noClients>
+    <hr>
+    <h5>No hay registros de vehículo</h5>
+
+    
+  </ng-template>
+
+<!-- </div> -->
