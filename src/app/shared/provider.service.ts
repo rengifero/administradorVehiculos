@@ -46,7 +46,10 @@ getAll(): AngularFirestoreCollection<Autos> {
 
 
 getBitacoraAuto(id:string){
-  this.autosRef3 = this.firestore.collection(this.dbPath2, ref => ref.where('autoId', '==',id));
+
+console.log("entra por aqui")
+  this.autosRef3 = this.firestore.collection(this.dbPath2, ref => (ref.where('autoId', '==',id) )
+                                                                      .orderBy("fecha","desc") )
 
   return this.autosRef3;
 
