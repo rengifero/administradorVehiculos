@@ -3,7 +3,8 @@ import { ModalComponent } from './../modal/modal.component';
 import { map } from 'rxjs/operators';
 import { ProviderService } from './../../shared/provider.service';
 import { Component, OnInit } from '@angular/core';
-import Autos from 'src/app/model/autos';
+import Autos from '../../model/autos';
+
 
 @Component({
   selector: 'app-autos-list',

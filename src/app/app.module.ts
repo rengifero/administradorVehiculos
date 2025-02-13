@@ -57,6 +57,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AutosComponent } from './components/autos/autos.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { DatallesComponent } from './components/datalles/datalles.component';
+import { EditAutosComponent } from './edit-autos/edit-autos.component';
 
 
 @NgModule({
@@ -78,6 +79,7 @@ import { DatallesComponent } from './components/datalles/datalles.component';
     AutosComponent,
     SettingsComponent,
     DatallesComponent,
+    EditAutosComponent,
     
     
   

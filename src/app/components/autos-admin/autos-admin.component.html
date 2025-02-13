@@ -44,7 +44,7 @@
         <!-- <th>Id</th> -->  
         <th>User</th>  
         <th>Fecha</th>  
-        <th>Kilometraje/th> 
+        <th>Kilometraje</th> 
         <th>Descripción</th>
         <th>lugar</th>
         <th>Costo</th>
@@ -52,17 +52,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let vit of vitacora; let ind = index">
+      <tr *ngFor="let vit of vitacora; let ind = index;count as c">
        <!--  <td>{{vit.id}}</td> -->
+  
+  
         <td>{{vit.User}}</td>
-        <td>{{vit.fecha.toDate() | date: 'dd-MM-yyyy' }}</td>
+        <td>{{ (vit.fecha)}}</td>
         <td>{{vit.kilometraje}}</td>
         <td>{{vit.descripcion}}</td>
         <td>{{vit.lugar}}</td>
 <!--         <td> {{vit.itemRows[0].costo }}</td> -->
       <td> {{ incremental[ind] }}</td>
         <!-- <td><a [routerLink]="['/detalles/'+vit.id+ind]"    href="" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-circle-o-right"></i> Details</a></td> -->
-        <td> <button type="button" (click)="detalles(vit.id)" class="btn btn-primary">detalles<i class="fa fa-plus-circle" aria-hidden="true"></i></button></td>
+        <td> <button type="button" (click)="detalles(vit.id,param)" class="btn btn-primary">detalles<i class="fa fa-plus-circle" aria-hidden="true"></i></button></td>
       </tr>
     </tbody>
 

@@ -1,0 +1,25 @@
+{Descripcion: 'tubo de escape', newDate: '18/11/2021', lugar: 'mofles esquina iglesia', kilomeraje: '294505', detalle0: 'soldadura tubo de escape altura carter', …}
+Descripcion
+: 
+"tubo de escape"
+costo0
+: 
+"100"
+detalle0
+: 
+"soldadura tubo de escape altura carter"
+kilomeraje
+: 
+"294505"
+lugar
+: 
+"mofles esquina iglesia"
+newDate
+: 
+"18/11/2021"
+recomendacion0
+: 
+"despues de un año"
+[[Prototype]]
+: 
+Object

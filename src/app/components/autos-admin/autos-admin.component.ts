@@ -3,6 +3,7 @@ import { map } from 'rxjs/operators';
 import { ProviderService } from './../../shared/provider.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router, NavigationExtras } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { ActivatedRoute, Params, Router, NavigationExtras } from '@angular/route
   styleUrls: ['./autos-admin.component.css']
 })
 export class AutosAdminComponent implements OnInit {
-
+pipe = new DatePipe('en-US');
   autos: any;
   clients: any[];
   totalOwed: number;
@@ -62,7 +63,7 @@ this.route.params.subscribe(
       )
     ).subscribe(data => {
       let incremental1=[];
-     
+     console.log(data)
       this.vitacora = data;
       this.incremental=[];
       let y=0;
@@ -72,9 +73,9 @@ this.route.params.subscribe(
       let costoTotal =0;
          
       for (let x =0; value.itemRows[x];x++)
-      costoTotal= costoTotal + parseInt(value.itemRows[x].costo);
+      /* costoTotal= costoTotal + parseInt(value.itemRows[x].costo);
        incremental1[y] =costoTotal;
-
+ */
        console.log(incremental1[y]);     
        y++;
      
@@ -86,7 +87,7 @@ this.route.params.subscribe(
     });
 
 }
-     public detalles (id){
+     public detalles (id,autoID: string){
 
 /*         console.log(id);
         console.log(this.vitacora[id]);
@@ -98,10 +99,19 @@ this.route.params.subscribe(
         
          //this.router.navigate(['/detalles/' + this.vitacora[0].itemRows]);
 
-         this.router.navigate(['/detalles/' +id ]);
+         this.router.navigate(['/detalles/' +id+'/'+autoID ]);
        //this.router.navigate(['/detalles']);
       }
 
+
+      newDate(date: any):Date{
+        console.log(date['seconds'])
+        let fecha = (new Date(date['seconds']*1000));      
+     
+       
+        console.log(fecha)
+return fecha
+      }
 }
 
 

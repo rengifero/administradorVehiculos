@@ -7,8 +7,10 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 import { Component, OnInit, ViewChild } from '@angular/core';
-import Autos from 'src/app/model/autos';
+
 import { MatInput } from '@angular/material/input';
+import Autos from '../../model/autos';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-add-events-auto',
@@ -26,11 +28,12 @@ export class AddEventsAutoComponent implements OnInit {
   public marca : String;  
   public  autoId: String;
   public  admin;
+  public newDate:any
   loggedInUser: string;
-
+pipe = new DatePipe('en-US');
   auto: Registro = {
-    fecha: null,
-    kilometraje:null,
+    fecha: new Date,
+    kilometraje:'',
     costo: 0.00,
   }
 
@@ -112,7 +115,7 @@ export class AddEventsAutoComponent implements OnInit {
 
   clearDate(event) {
     event.stopPropagation();
-    this.date = null;
+   // this.date = null;
   }
 
 
@@ -172,7 +175,13 @@ this.addmore.addControl('autoId', new FormControl( this.autoId, Validators.requi
 
 this.addmore.addControl('User', new FormControl( this.loggedInUser ) );
 
+console.log(this.addmore.get('fecha')?.value)
 
+let ChangedFormat = this.pipe.transform(this.addmore.get('fecha')?.value, 'yyyy-MM-dd');
+    this.newDate = ChangedFormat;
+    this.addmore.removeControl('fecha')
+    this.addmore.addControl('fecha', new FormControl(   this.newDate, Validators.required ) );
+    
 
 console.log("this.addmore.value :"+this.addmore.value);
 let dateOfBirth: Moment = this.addmore.get('fecha').value;

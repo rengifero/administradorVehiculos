@@ -54,6 +54,7 @@
           },
           "configurations": {
             "production": {
+        
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -63,7 +64,7 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
+              
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -86,18 +87,20 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-firebase-authentication:build"
-          },
+             "browserTarget": "angular-firebase-authentication:build"
+            
+            },
           "configurations": {
             "production": {
-              "browserTarget": "angular-firebase-authentication:build:production"
-            }
+                "browserTarget": "angular-firebase-authentication:build:production"
+                
+                 }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-firebase-authentication:build"
+              "browserTarget": "angular-firebase-authentication:build"
           }
         },
         "test": {
@@ -152,7 +155,7 @@
       }
     }
   },
-  "defaultProject": "angular-firebase-authentication",
+
   "cli": {
     "analytics": false
   }

@@ -12,12 +12,12 @@ export default class Autos {
 
   export class Vitacora {
     $key=false;
-    autoId: string;
-    descripcion: string;
-    fecha : string;
-    kilometraje : string;
-    tipo: string;
-    lugar: string;
+    autoId?: string;
+    descripcion?: string;
+    fecha? : Date;
+    kilometraje? : string;
+    tipo?: string;
+    lugar?: string;
 
 
     itemRows: {

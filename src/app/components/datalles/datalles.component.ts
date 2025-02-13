@@ -15,6 +15,7 @@ import { Component, OnInit } from '@angular/core';
 export class DatallesComponent implements OnInit {
 
    objectAutoDetalle;
+   autoId
 
 
    vitacora: Vitacora[];
@@ -37,6 +38,7 @@ export class DatallesComponent implements OnInit {
              this.route.params.subscribe(
               (params: Params) => {
                 this.objectAutoDetalle = params['auto-detalle'];
+                this.autoId = params['autoId'];
                 //this.coche.marca = params.marca;
                 console.log("autoIobjectAutoDetalled: "+this.objectAutoDetalle);
               }

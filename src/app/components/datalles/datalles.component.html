@@ -7,7 +7,7 @@
     </div>
     <div class="col-md-6">
       <div class="btn-group pull-right">
-        <a [routerLink]="['/edit-client/']" class="btn btn-secondary">Edit</a>
+        <a [routerLink]="['/edit-autos/'+objectAutoDetalle+'/'+autoId]"   class="btn btn-secondary">Edit</a>
         <button type="button" class="btn btn-danger" (click)="onDeleteClick()">Delete</button>
       </div>
         
@@ -37,7 +37,7 @@
     <thead class="thead-danger">
       <tr>
        <!--  <th>ID</th> -->
-        <th>descripcion</th>
+        <th>detalle</th>
         <th>costo</th>
         <th>recomendacion</th>
         
@@ -54,7 +54,7 @@
         <td>{{vit.descripcion}}</td> -->
         
 
-          <tr *ngFor="let item of vit.itemRows; let ind = index">
+          <tr *ngFor="let item of vit.itemRows; let ind = index; count as c">
 
             <td>{{item.descripcion}}</td>
             <td>{{item.costo}}</td>

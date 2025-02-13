@@ -16,6 +16,7 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 
 import { AuthGuard } from "./auth.guard";
 import { DatallesComponent } from './components/datalles/datalles.component';
+import { EditAutosComponent } from './edit-autos/edit-autos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
@@ -30,7 +31,9 @@ const routes: Routes = [
   { path: 'add-auto/:autoId/:admin', component: AddEventsAutoComponent },
   { path: 'autos/:autoId/:admin', component: AutosComponent },
   {path: 'settings', component: SettingsComponent, canActivate: [AuthGuard]},
-  {path: 'detalles/:auto-detalle', component: DatallesComponent},
+  {path: 'detalles/:auto-detalle/:autoId', component: DatallesComponent},
+  {path: 'edit-autos/:auto-detalle/:autoId', component: EditAutosComponent},
+  
  
 ];
 

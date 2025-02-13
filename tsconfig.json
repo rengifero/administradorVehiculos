@@ -14,5 +14,11 @@
       "path": "./tsconfig.spec.json"
     }
 ],
+"compilerOptions": {
+  "outDir": "./out-tsc/spec",
+  
 "noImplicitAny": false
+
+}
+
 }
